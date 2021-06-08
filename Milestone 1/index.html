@@ -21,8 +21,10 @@
         <main>
             <div class="films">
                 <div class="film" v-for="film in films">
-                    <h3>{{ films.title }}</h3>    
-                    <span>{{ films.original_title }}</span>
+                    <h3>{{ film.title }}</h3>    
+                    <div>{{ film.original_title }}</div>
+                    <div>{{ film.original_language }}</div>
+                    <div>{{ film.vote_average }}</div>
                 </div>
             </div>
         </main>
