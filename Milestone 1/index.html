@@ -14,10 +14,17 @@
                 <img src="./assets/img/1ed15bca-b389-11e7-9274-06c476b5c346_cm_800w.png" alt="">
             </div>
             <div class="search">
-                <input type="text">
-                <button>Search</button>
+                <input type="text" v-model="query">
+                <button @click="searchAFilm">Search</button>
             </div>
         </div>
+        <main>
+            <div class="films">
+                <div class="film" v-for="film in films">
+                    <h3>{{film.title}}</h3>
+                </div>
+            </div>
+        </main>
     </div>
     <!-- VUE JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
