@@ -6,6 +6,7 @@ var root = new Vue({
         query: "",
         url: "https://api.themoviedb.org/3",
         api_key: "30db9530ead0b63d24c933102d9ad862",
+        /* flag: "https://www.countryflags.io/" + "/flat/64.png" */
     },
     methods: {
         searchAFilm: function () {
@@ -18,7 +19,7 @@ var root = new Vue({
                 .then(res => {
                     this.series = res.data.results;
                     console.log(this.series);
-            })
+                })
         }
     },
     mounted() {

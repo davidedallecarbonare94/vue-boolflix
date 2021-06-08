@@ -25,6 +25,7 @@
                     <div>{{ film.original_title }}</div>
                     <div>{{ film.original_language }}</div>
                     <div>Media voto: {{ film.vote_average }}</div>
+                    <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
                 </div>
             </div>
             <div class="series">
@@ -33,6 +34,7 @@
                     <div>{{ serie.original_title }}</div>
                     <div>{{ serie.original_language }}</div>
                     <div>Media voto: {{ serie.vote_average }}</div>
+                    <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
                 </div>
             </div>
         </main>
