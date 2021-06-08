@@ -23,18 +23,32 @@
                 <div class="film" v-for="film in films">
                     <h3>{{ film.title }}</h3>  
                     <div>{{ film.original_title }}</div>
-                    <div>{{ film.original_language }}</div>
+                    <div v-if="film.original_language != 'en' && film.original_language != 'ja'">
+                        Language:<img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
+                    </div>
+                    <div v-else-if="film.original_language == 'ja'">
+                        Language: <img src="https:www.countryflags.io/jp/flat/32.png">
+                    </div>
+                    <div v-else-if="film.original_language == 'en'">
+                        Language: <img src="https:www.countryflags.io/gb/flat/32.png">
+                    </div>
                     <div>Media voto: {{ film.vote_average }}</div>
-                    <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
                 </div>
             </div>
             <div class="series">
                 <div class="serie" v-for="serie in series">
                     <h3>{{ serie.name }}</h3>  
                     <div>{{ serie.original_title }}</div>
-                    <div>{{ serie.original_language }}</div>
+                    <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
+                        Language:<img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
+                    </div>
+                    <div v-else-if="serie.original_language == 'ja'">
+                        Language: <img src="https:www.countryflags.io/jp/flat/32.png">
+                    </div>
+                    <div v-else-if="serie.original_language == 'en'">
+                        Language: <img src="https:www.countryflags.io/gb/flat/32.png">
+                    </div>
                     <div>Media voto: {{ serie.vote_average }}</div>
-                    <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
                 </div>
             </div>
         </main>
