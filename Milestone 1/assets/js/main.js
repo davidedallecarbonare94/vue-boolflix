@@ -10,7 +10,7 @@ var root = new Vue({
         searchAFilm: function () {
             axios.get(`${this.url}/search/movie?api_key=${this.api_key}&query=${this.query}`)
             .then(result => {
-                this.films = result.data;
+                this.films = result.data.results;
                 console.log(this.films);
         })
         }
