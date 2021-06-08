@@ -1,7 +1,7 @@
 var root = new Vue({
     el: "#root",
     data: {
-        films: [],
+        films: "",
         query: "",
         url: "https://api.themoviedb.org/3",
         api_key: "30db9530ead0b63d24c933102d9ad862",
