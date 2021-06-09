@@ -42,7 +42,9 @@
                 <div class="serie" v-for="serie in series">
                     <img :src="'https://image.tmdb.org/t/p/w92/' + serie.poster_path" alt="">
                     <h3>{{ serie.name }}</h3>  
-                    <div>{{ serie.original_title }}</div>
+                    <div v-if="serie.name != serie.original_title">
+                        <h3>{{serie.original_title}}</h3>
+                    </div>
                     <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
                         <img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
                     </div>
