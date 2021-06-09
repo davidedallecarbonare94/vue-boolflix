@@ -1,33 +1,61 @@
+/* Common rules */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.container{
-    background-color: lightgray;
+body{
+    background-color: black;
 }
+/* navbar */
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: black;
+    padding: 2rem;
+}
+.navbar input{
+    outline: none;
+    padding: 10px;
+}
+.navbar button{
+    padding: 10px;
 }
 .logo > img {
-    height: 200px;
-    width: 400px;
+    height: 100px;
+    width: 200px;
 }
+/* Main section */
 main{
-    background-color: lightgray;
+    background-color: black;
+    width: 95%;
+    margin: 0 auto;
 }
 .films{    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;}
+    align-items: center;
+    
+}
+.card_front{
+    visibility: hidden;
+}
+.card_back{
+    visibility: visible;
+}
+.card:hover .card_back{
+    visibility: hidden;
+}
+.card:hover .card_front{
+    visibility: visible;
+}
 .film{
-    width: 200px;
     background-color: aliceblue;
 }
+
 .series{    
     display: flex;
     flex-wrap: wrap;
