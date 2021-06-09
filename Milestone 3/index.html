@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Coding - </title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div id="root" class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="./assets/img/1ed15bca-b389-11e7-9274-06c476b5c346_cm_800w.png" alt="">
+            </div>
+            <div class="search">
+                <input type="text" v-model="query" placeholder="Search for film or Tv Series">
+                <button @click="searchAFilm">Search</button>
+            </div>
+        </div>
+        <main>
+            <div class="films">
+                <div class="film" v-for="film in films">
+                    <img :src="'https://image.tmdb.org/t/p/​w780' + film.poster_path" alt="">
+                    <h3>{{ film.title }}</h3>  
+                    <div>{{ film.original_title }}</div>
+                    <div v-if="film.original_language != 'en' && film.original_language != 'ja'">
+                        <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
+                    </div>
+                    <div v-else-if="film.original_language == 'ja'">
+                        <img src="https:www.countryflags.io/jp/flat/32.png">
+                    </div>
+                    <div v-else-if="film.original_language == 'en'">
+                        <img src="https:www.countryflags.io/gb/flat/32.png">
+                    </div>
+                    <div>Media voto: {{ film.vote_average }}</div>
+                </div>
+            </div>
+            <div class="series">
+                <div class="serie" v-for="serie in series">
+                    <h3>{{ serie.name }}</h3>  
+                    <div>{{ serie.original_title }}</div>
+                    <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
+                        <img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
+                    </div>
+                    <div v-else-if="serie.original_language == 'ja'">
+                        <img src="https:www.countryflags.io/jp/flat/32.png">
+                    </div>
+                    <div v-else-if="serie.original_language == 'en'">
+                        <img src="https:www.countryflags.io/gb/flat/32.png">
+                    </div>
+                    <div>Media voto: {{ serie.vote_average }}</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- VUE JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- AXIOS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- MY JS FILE -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
