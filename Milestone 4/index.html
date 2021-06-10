@@ -48,21 +48,25 @@
             </div>
             <div class="series">
                 <div class="serie" v-for="serie in series">
-                    <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
-                    <h3>{{ serie.name }}</h3>
-                    <div v-if="serie.name != serie.original_title">
-                        <h3>{{serie.original_title}}</h3>
+                    <div class="card_back">
+                        <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
                     </div>
-                    <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
-                        <img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
+                    <div class="card_front">
+                        <h3>{{ serie.name }}</h3>
+                        <div v-if="serie.name != serie.original_title">
+                            <h3>{{serie.original_title}}</h3>
+                        </div>
+                        <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
+                            <img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
+                        </div>
+                        <div v-else-if="serie.original_language == 'ja'">
+                            <img src="https:www.countryflags.io/jp/flat/32.png">
+                        </div>
+                        <div v-else-if="serie.original_language == 'en'">
+                            <img src="https:www.countryflags.io/gb/flat/32.png">
+                        </div>
+                        <div>Media voto: {{ serie.vote_average }}</div>
                     </div>
-                    <div v-else-if="serie.original_language == 'ja'">
-                        <img src="https:www.countryflags.io/jp/flat/32.png">
-                    </div>
-                    <div v-else-if="serie.original_language == 'en'">
-                        <img src="https:www.countryflags.io/gb/flat/32.png">
-                    </div>
-                    <div>Media voto: {{ serie.vote_average }}</div>
                 </div>
             </div>
         </main>
