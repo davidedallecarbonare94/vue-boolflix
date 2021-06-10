@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Coding - </title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -22,15 +25,22 @@
             </div>
         </div>
         <main>
-            <div class="films">
+            <div class="films" v-if="films != 0">
+
                 <div class="film" v-for="film in films">
                     <div class="card_back">
-                        <img :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
+                        <div v-if="film.poster_path != null">
+                            <img :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
+                        </div>
+                        <div class="not_found_img" v-else>
+                            <img src="./assets/img/image-not-found.png" alt="">
+                            <span class="error_text"><strong>Sorry, image not found</strong></span>
+                        </div>
                     </div>
                     <div class="card_front">
-                        <h3>{{ film.title }}</h3>
+                        <h3><strong>Titolo: </strong>{{ film.title }}</h3>
                         <div v-if="film.title != film.original_title">
-                            <h3>{{film.original_title}}</h3>
+                            <h3><strong>Titolo Originale: </strong>{{film.original_title}}</h3>
                         </div>
                         <div v-if="film.original_language != 'en' && film.original_language != 'ja'">
                             <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
@@ -41,21 +51,29 @@
                         <div v-else-if="film.original_language == 'en'">
                             <img src="https:www.countryflags.io/gb/flat/32.png">
                         </div>
-                        <div>Media voto: {{ film.vote_average }}</div>
+                        <div>
+                            <strong>Media voto: </strong> 
+                            <i v-for="star in parseInt(film.vote_average / 2)" class="fas fa-star"></i>
+                            <i v-for="star in (5 - parseInt(film.vote_average / 2))" class="far fa-star"></i>
+                        </div>
+                        <div class="overview"><strong>Recensione: </strong> {{film.overview}}</div>
                     </div>
 
                 </div>
             </div>
-            <div class="series">
+            <div class="series" v-if="series != 0">
                 <div class="serie" v-for="serie in series">
                     <div class="card_back">
-                        <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
+                        <div v-if="serie.poster_path != null">
+                            <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
+                        </div>
+                        <div class="not_found_img" v-else>
+                            <img src="./assets/img/image-not-found.png" alt="">
+                            <span class="error_text"><strong>Sorry, image not found</strong></span>
+                        </div>
                     </div>
                     <div class="card_front">
-                        <h3>{{ serie.name }}</h3>
-                        <div v-if="serie.name != serie.original_title">
-                            <h3>{{serie.original_title}}</h3>
-                        </div>
+                        <h3><strong>Titolo: </strong>{{ serie.name }}</h3>
                         <div v-if="serie.original_language != 'en' && serie.original_language != 'ja'">
                             <img :src="'https:www.countryflags.io/' + serie.original_language + '/flat/32.png'">
                         </div>
@@ -65,7 +83,12 @@
                         <div v-else-if="serie.original_language == 'en'">
                             <img src="https:www.countryflags.io/gb/flat/32.png">
                         </div>
-                        <div>Media voto: {{ serie.vote_average }}</div>
+                        <div>
+                            <strong>Media voto: </strong> 
+                            <i v-for="star in parseInt(serie.vote_average / 2)" class="fas fa-star"></i>
+                            <i v-for="star in (5 - parseInt(serie.vote_average / 2))" class="far fa-star"></i>
+                        </div>
+                        <div class="overview"><strong>Recensione: </strong> {{serie.overview}}</div>
                     </div>
                 </div>
             </div>
