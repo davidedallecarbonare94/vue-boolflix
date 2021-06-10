@@ -24,27 +24,26 @@
         <main>
             <div class="films">
                 <div class="film" v-for="film in films">
-                    <div class="card">
-                        <div class="card_back">
-                            <img :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
-                        </div>
-                        <div class="card_front">
-                            <h3>{{ film.title }}</h3>
-                            <div v-if="film.title != film.original_title">
-                                <h3>{{film.original_title}}</h3>
-                            </div>
-                            <div v-if="film.original_language != 'en' && film.original_language != 'ja'">
-                                <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
-                            </div>
-                            <div v-else-if="film.original_language == 'ja'">
-                                <img src="https:www.countryflags.io/jp/flat/32.png">
-                            </div>
-                            <div v-else-if="film.original_language == 'en'">
-                                <img src="https:www.countryflags.io/gb/flat/32.png">
-                            </div>
-                            <div>Media voto: {{ film.vote_average }}</div>
-                        </div>
+                    <div class="card_back">
+                        <img :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
                     </div>
+                    <div class="card_front">
+                        <h3>{{ film.title }}</h3>
+                        <div v-if="film.title != film.original_title">
+                            <h3>{{film.original_title}}</h3>
+                        </div>
+                        <div v-if="film.original_language != 'en' && film.original_language != 'ja'">
+                            <img :src="'https:www.countryflags.io/' + film.original_language + '/flat/32.png'">
+                        </div>
+                        <div v-else-if="film.original_language == 'ja'">
+                            <img src="https:www.countryflags.io/jp/flat/32.png">
+                        </div>
+                        <div v-else-if="film.original_language == 'en'">
+                            <img src="https:www.countryflags.io/gb/flat/32.png">
+                        </div>
+                        <div>Media voto: {{ film.vote_average }}</div>
+                    </div>
+
                 </div>
             </div>
             <div class="series">

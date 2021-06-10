@@ -41,16 +41,19 @@ main{
     
 }
 .card_front{
-    visibility: hidden;
+    display: none;
 }
-.card_back{
-    visibility: visible;
+.card_back img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
 }
-.card:hover .card_back{
-    visibility: hidden;
+.film:hover .card_back{
+    display: none;
 }
-.card:hover .card_front{
-    visibility: visible;
+.film:hover .card_front{
+    display: block;
 }
 .film{
     background-color: aliceblue;
@@ -60,7 +63,8 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;}
+    align-items: center;
+}
 .serie{
     height: 100px;
     width: 200px;
